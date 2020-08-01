@@ -1,6 +1,10 @@
 import "core-js";
 import express from "express";
-import { resolve } from "dns";
+import morgan from "morgan";
+import helmet from "helmet";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+
 const app = express();
 
 const PORT = 4000;
@@ -10,14 +14,13 @@ const handleListening = () =>
 
 const handleHome = (req, res) => res.send("Hello from MY ASS");
 
-const betweenHome = (req, res, next) => {
-  console.log("Between");
-  next();
-};
-
 const handleProfile = (req, res) => res.send("You are on my profile");
 
-app.use(betweenHome);
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(helmet()); // to security
+app.use(morgan("dev"));
 
 app.get("/", handleHome);
 
