@@ -1,6 +1,3 @@
-import {
-  restart
-} from "nodemon";
 import routes from "../routes";
 
 export const getJoin = (req, res) => {
@@ -11,12 +8,7 @@ export const getJoin = (req, res) => {
 
 export const postJoin = (req, res) => {
   const {
-    body: {
-      name,
-      email,
-      password,
-      password2
-    }
+    body: { name, email, password, password2 },
   } = req;
   if (password !== password2) {
     res.status(400);
@@ -37,12 +29,12 @@ export const getLogin = (req, res) =>
 
 export const postLogin = (req, res) => {
   res.redirect(routes.home);
-}
+};
 
-export const logout = (req, res) =>
-  res.render("logout", {
-    pageTitle: "Logout",
-  });
+export const logout = (req, res) => {
+  // To DO: Process Log Out
+  res.redirect(routes.home);
+};
 
 export const users = (req, res) =>
   res.render("users", {
