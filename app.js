@@ -4,9 +4,7 @@ import "core-js";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import {
-  localsMiddleware
-} from "./middlewares";
+import { localsMiddleware } from "./middlewares";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
@@ -18,9 +16,11 @@ app.use(helmet()); // to security
 app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use(morgan("dev"));
 
 app.use(localsMiddleware);
