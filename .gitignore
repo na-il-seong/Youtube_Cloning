@@ -121,3 +121,7 @@ package-lock.json
 uploads
 
 .eslintrc.js
+
+static
+static/main.js
+static/styles.css
