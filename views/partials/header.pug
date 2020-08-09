@@ -2,9 +2,11 @@ header.header
     .header__column
         a(href=routes.home)
             i.fab.fa-youtube
+            div Premium
     .header__column
         form(action=routes.search, method="get")
             input(type="text", placeholder="Search by term...", name="term")
+            button 🔍
     .header__column
         ul
         if !user.isAuthenticated

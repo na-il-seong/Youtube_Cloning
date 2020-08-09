@@ -1,0 +1,74 @@
+.header {
+  background-color: white;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 250px 1fr 450px;
+  font-size: 20px;
+  :nth-child(2) {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  form {
+    width: 100%;
+    max-width: 680px;
+    height: 35px;
+    border: 1px solid #a8a8a8;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  input {
+    padding-left: 15px;
+    color: $black;
+    border: none;
+  }
+  ::placeholder {
+    color: #adadad;
+  }
+}
+:nth-child(3) {
+  display: flex;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+  padding-left: 0;
+  a {
+    color: $gray;
+  }
+}
+
+.header__column {
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  display: flex;
+  justify-content: space-between;
+  i {
+    color: $red;
+    font-size: 30px;
+  }
+  div {
+    font-family: "Anton", sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    letter-spacing: -2px;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  border: 0;
+  background-color: inherit;
+  padding-right: 15px;
+}
