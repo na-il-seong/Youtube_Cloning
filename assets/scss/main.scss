@@ -13,6 +13,14 @@ main {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  min-height: 70vh;
+  max-height: 1260px;
+  // height: 1209px;
+  min-height: 75vh;
   padding-top: 60px;
+  padding-bottom: 140px;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
 }
