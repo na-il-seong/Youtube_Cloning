@@ -1,26 +1,23 @@
-html,
 body {
-  height: 100%;
-}
-
-body {
+  height: auto;
   font-family: "Roboto", sans-serif;
   background-color: #f5f5f5;
   color: $black;
+  padding-bottom: 140px;
+}
+
+header {
+  z-index: 11;
 }
 
 main {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
-  max-height: 1260px;
-  // height: 1209px;
-  min-height: 75vh;
+  min-height: 85vh;
   padding-top: 60px;
-  padding-bottom: 140px;
 }
 
 footer {
-  position: absolute;
   width: 100%;
 }
