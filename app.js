@@ -8,6 +8,8 @@ import dotenv from "dotenv";
 
 import passport from "passport";
 import session from "express-session";
+import mongoose from "mongoose";
+import MongoStore from "connect-mongo";
 
 import { localsMiddleware } from "./middlewares";
 
@@ -19,6 +21,8 @@ import routes from "./routes";
 import "./passport";
 
 const app = express();
+
+const CookieStore = MongoStore(session);
 
 dotenv.config();
 
@@ -40,6 +44,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
+    store: new CookieStore({ mongooseConnection: mongoose.connection }),
   })
 );
 
