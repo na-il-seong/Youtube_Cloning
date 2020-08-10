@@ -1,6 +1,6 @@
+import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
-import passport from "passport";
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
@@ -14,7 +14,6 @@ export const postJoin = async (req, res, next) => {
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
-    // To Do: Register User
     try {
       const user = await User({
         name,
@@ -38,8 +37,44 @@ export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home,
 });
 
+// Github Login
+
+export const githubLogin = passport.authenticate("github");
+
+export const githubLoginCallback = async (_, __, profile, cb) => {
+  const {
+    _json: { id, avata_url, name, email },
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    } else {
+      const newUser = await User.create({
+        name,
+        email,
+        avataUrl: avata_url,
+        githubId: id,
+      });
+      return cb(null, newUser);
+    }
+  } catch (error) {
+    cb(error);
+  }
+};
+
+export const postGithubLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
+// Facebook Login
+
+// Logout
+
 export const logout = (req, res) => {
-  // To DO: Process Log Out
+  req.logout();
   res.redirect(routes.home);
 };
 

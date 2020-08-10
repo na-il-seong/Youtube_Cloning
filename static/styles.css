@@ -706,7 +706,8 @@ button {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 85px; }
-  .social-login button {
+  .social-login button,
+  .social-login a {
     text-decoration: none;
     text-align: center;
     font-size: 30px;

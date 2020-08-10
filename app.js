@@ -6,6 +6,9 @@ import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
 
+import "./passport";
+import routes from "./routes";
+
 import passport from "passport";
 import session from "express-session";
 import mongoose from "mongoose";
@@ -16,9 +19,6 @@ import { localsMiddleware } from "./middlewares";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-
-import routes from "./routes";
-import "./passport";
 
 const app = express();
 
