@@ -10,6 +10,7 @@ import {
   logout,
   githubLogin,
   postGithubLogin,
+  getMe,
 } from "../controllers/userController";
 import { OnlyPublic, OnlyPrivate } from "../middlewares";
 
@@ -20,6 +21,8 @@ globalRouter.post(routes.join, OnlyPublic, postJoin, postLogin);
 
 globalRouter.get(routes.login, OnlyPublic, getLogin);
 globalRouter.post(routes.login, OnlyPublic, postLogin);
+
+globalRouter.get(routes.me, OnlyPrivate, getMe);
 
 globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
