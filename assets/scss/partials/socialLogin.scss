@@ -9,11 +9,13 @@
     text-align: center;
     font-size: 30px;
     border-radius: 10px;
-    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.5);
     width: 430px;
     height: 58px;
     margin-bottom: 20px;
     color: white;
+  }
+  button {
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.5);
   }
   .social-login-github {
     background-color: $lightBlack;

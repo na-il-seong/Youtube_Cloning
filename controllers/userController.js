@@ -73,6 +73,21 @@ export const postGithubLogin = (req, res) => {
 
 // Facebook Login
 
+export const facebookLogin = passport.authenticate("facebook");
+
+export const facebookLoginCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const postFacebookLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
 // Logout
 
 export const logout = (req, res) => {
